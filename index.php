@@ -1,6 +1,8 @@
-<?php
-    include_once 'dblink.php';
-?>
+<?php 
+  include_once 'dblink.php';
+  ?>
+
+
 <!DOCTYPE HTML>
 <html>
 
@@ -22,6 +24,8 @@
     <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 
 
@@ -114,10 +118,11 @@
     </div>
 
 
+
     <div class="order-box" id="box">
         <div class="order-top-pane" >
             <!-- Your Order -->
-            <span class='openclose' id='opderTP'>-</span>
+            <span class='openclose' id='opderTP' style="cursor:pointer; font-size:15px; " >-</span>
         </div>
         <div class="order-main-pane" Id='orderMP'>
             <div class="order-list-box" id='orderLB'>
@@ -135,41 +140,43 @@
         <div class="menu-body" id="menu">
 
         <section class='add-modification-box'>
-            Specify Modification or add-ons : 
-            <input type="text" width="100%" height="100%" id='mb-text' placeholder="Eg. Toppings, Spicy etc">
-            Quantity:
-            <input type="number" min=1 max=10 width="0" height="100%" id='mb-quan' required>
-            <button class='box-button' Id='mb-add'>Add</button>
-            <button class='box-button' Id='mb-cancel'>Cancel</button>
+            <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Specify Modification or add-ons : </p>
+                <input type="text" width="100%" height="100%" id='mb-text' placeholder="Eg. Toppings, Spicy etc" style=" font-family: 'Montserrat', cursive; ">
+            <p style=" font-family: 'Montserrat', cursive; font-weight:bold" >Quantity : </p>
+                <input type="number" min=1 max=10 width="0" height="100%" id='mb-quan' required style=" font-family: 'Montserrat', cursive; ">
+            <button class='box-button' Id='mb-add' style=" font-family: 'Montserrat', cursive; ">Add</button>
+            <button class='box-button' Id='mb-cancel' style=" font-family: 'Montserrat', cursive; ">Cancel</button>
         </section>
 
         <section class='login-regist-box'>
             <div class='log-reg-nav'>
-                <span class='lrn-log'>Login</span>
-                <span class='lrn-reg'>Register</span>
+                <span class='lrn-log' style=" font-family: 'Montserrat', cursive;">Login</span>
+                <span class='lrn-reg' style=" font-family: 'Montserrat', cursive; ">Register</span>
             </div>
 
             <div class="log-rev-main">
-                <form action="" class="login-form">
-                    Username:
-                    <input type="text" id="username" placeholder="Eg. James" required autofocus>
-                    Password:
-                    <input type="password" id="password" required >
-                    <button class='box-button' Id='lg-submit' type="Submit">Submit</button>
-                    <button class='box-button' Id='lg-cancel'>Cancel</button>
+                <form action="" class="login-form" method="post">
+                <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Username :  </p>
+                    <input type="text" name="username" placeholder="Eg. James" required autofocus style=" font-family: 'Montserrat', cursive; "> 
+                <p style=" font-family: 'Montserrat', cursive;  font-weight:bold"> Password : </p>
+                    <input type="password" name="password" required style=" font-family: 'Montserrat', cursive; ">
+                <button class='box-button' Id='lg-submit' type="Submit" name="Submit" style=" font-family: 'Montserrat', cursive; " > Submit</button>
+       
+
+                <button class='box-button' Id='lg-cancel'style=" font-family: 'Montserrat', cursive; ">Cancel</button>
                 </form>
 
-                <form action="" class="register-form">
-                    Email-id:
-                    <input type="email" id="email-id" placeholder="Eg. James@gunn.com" required autofocus>
-                    Username:
-                    <input type="text" id="username" placeholder="Eg. James" required autofocus>
-                    Password:
-                    <input type="password" id="password" required >
-                    Contact No.:
-                    <input type="tel" maxlength="12" id="password" required >
-                    Address:
-                    <input type="text" id="password" required >
+               <form action="" class="register-form">
+                    <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Email : </p>
+                        <input type="email" id="email-id" placeholder="Eg. James@gunn.com" required autofocus style=" font-family: 'Montserrat', cursive; ">
+                    <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Username : </p>
+                        <input type="text" name="username" placeholder="Eg. James" required autofocus style=" font-family: 'Montserrat', cursive; ">
+                    <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Password : </p>
+                        <input type="password" name="password" required  style=" font-family: 'Montserrat', cursive; ">
+                    <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Contact no : </p>
+                        <input type="tel" maxlength="12" id="password" required  style=" font-family: 'Montserrat', cursive; ">
+                    <p style=" font-family: 'Montserrat', cursive;  font-weight:bold">Address : </p>
+                        <input type="text" id="password" required  style=" font-family: 'Montserrat', cursive; ">
                     <button class='box-button' Id='lg-submit' type="Submit">Submit</button>
                     <button class='box-button' Id='lg-cancel'>Cancel</button>
                 </form>
@@ -324,7 +331,7 @@
         }
 
 
-        var currentUser='Dishank'
+        var currentUser
         var data, name, price, quan, addMods
         var itemDetails = []
         $(document).ready(function(){
@@ -406,5 +413,389 @@
 
     
 </body>
+<style>
+    *{
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+/* Navbar */
+nav {
+  background-color: rgba(255, 255, 255, 1);
+  min-height: 69px;
+  position: fixed;
+  top:0px;
+  z-index: 2;
+}
+
+.material-icons {
+  vertical-align: middle;
+  margin-top: 5px;
+}
+nav ul li a {
+  color: black;
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+}
+nav li{
+  display: inline-block;
+  margin-left: 30px;
+  padding-top: 35px;
+  margin-right: 30px;
+  position: relative;
+}
+
+.brand-logo p{
+  color: black;  
+  padding-left:10px;
+  font-family: 'Righteous', cursive;
+}
+nav a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+nav a:hover{
+    color:black;
+    background-color: rgba(0,0,0,0.0) !important
+}
+nav a::before{
+    content:'';
+    display: block;
+    height: 5px;
+    background-color: black;
+    top: 0;
+    width:0%;
+}
+nav a:hover::before{
+    width: 100%;
+    transition: all ease-in-out 100ms;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    justify-content: center;
+    padding-top:150px;
+  }
+  
+  .slide{
+      height:100vh;
+
+      
+  }
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .prev{
+      left:0px;
+      top:57%;
+  }
+  .next{
+     right:0px;
+     top:57%;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .prev , .next{
+        top:65%;
+        cursor: pointer;
+    }
+  }
+
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  .menu-body {
+    max-width: 680px;
+    margin: 0 auto;
+    display: block;
+    color: rgb(92, 92, 92);
+    padding-top:150px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .menu-body{
+        width:90%;
+    }
+  }
+  
+  .menu-section {
+    margin-bottom: 80px;
+  }
+  
+  .menu-section-title {
+    font-family: georgia;
+    font-size: 50px;
+    display: block;
+    font-weight:normal;
+    margin: 20px 0; 
+    text-align: Center;
+  }
+  
+  .menu-item {
+    margin: 35px 0;
+    font-size: 18px;
+  }
+  
+  .menu-item-name{
+    font-family: helvetica;
+    font-weight: bold;
+    border-bottom: 2px dotted rgb(213, 213, 213);
+  }
+  
+  .menu-item-name:hover{
+      cursor: pointer;
+  }
+  .menu-item-description {
+    font-style: italic;
+    font-size: .9em;
+    line-height: 1.5em;
+  }
+  
+  .menu-item-price{
+    float: right;
+    font-weight: bold;
+    font-family: arial;
+    margin-top: -22px;
+  }
+  
+  .order-box{
+      width:30%;
+      
+      position: fixed; 
+      right:0%;
+      bottom:0%;
+      opacity: 1;
+      display: none;
+  }
+  .order-top-pane{
+    height: 40px;   
+    border: 1px black solid;
+      padding:10px;
+      color:white;
+      background-color: black;
+      
+  }
+  .openclose{
+    float:right;
+    color:white;
+    font-size:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:400;
+  }
+
+  .order-main-pane{
+    height:50vh;
+    border:1px solid black;
+    background-color: white;
+    display:none;
+    padding:15px;
+  }
+
+  .order-list-box{
+    border: 1px solid black;
+    width: 100%;
+    height: 25%;
+    padding:10px;
+  }
+
+  .order-name-box {
+    padding: 5px;
+    width: auto;
+    height: auto;
+    background-color:lightgrey;
+    color: black;
+    margin-right:5px;
+    border-radius:25px;
+}
+
+.order-name-cancel {
+    vertical-align:18%;
+    right:0%;
+    color: red;
+    border: 2px solid red;
+    border-radius: 50%;
+    padding: 2px 6px 4px 6px;
+    font-size:12px;
+    cursor: pointer;
+}
+
+.add-modification-box{
+  width:40%;
+  height:32%;
+  position: fixed; 
+  vertical-align:center;
+  justify-content: center;
+  left:30%;
+  top:40%;
+  opacity: 1;
+  border:1px solid black;
+  background-color: white;
+  display:none;
+  padding:10px;
+  font-size:100%;
+  box-shadow: 5px 6px 6px #888888;
+  color:black;
+}
+
+.box-button{
+  padding:5px 10px;
+ background-color : #4af0c4;
+  color:black;
+  font-size:100%;
+  font-weight:400;
+  border-radius: 25px;
+  border:none;
+  margin-right:5px;
+}
+.box-button:hover{
+    display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.box-button:hover, .box-button:focus, .box-button:active {
+  -webkit-transform: scale(1.1) rotate(7deg);
+  transform: scale(1.1) rotate(7deg);
+  background-color: #248a6f;
+}
+
+.login-regist-box{
+  width:40%;
+  height:auto;
+  position: fixed; 
+  vertical-align:center;
+  justify-content: center;
+  left:30%;
+  top:20%;
+  opacity: 1;
+  border:1px solid black;
+  background-color: white;
+  display:none; 
+  padding:15px;
+  font-size:100%;
+  font-family:Arial, Helvetica, sans-serif;
+  color:black;
+  box-shadow: 5px 6px 6px #888888;
+}
+
+.log-reg-nav > span{
+  cursor:pointer;
+  border:1px solid black;
+  border-bottom:none;
+  z-index:1;
+  opacity: 2;
+  display:inline-block;
+  padding:5px 10px 7px 10px;
+  font-size:100%;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:600;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color:black;
+}
+
+.log-rev-main > form{
+  border-top:1px solid black;
+  font-size:100%;
+  font-family:Arial, Helvetica, sans-serif;
+  padding:10px 5px;
+}
+
+.register-form{
+  display:none;
+}
+</style>
 
 </html>
